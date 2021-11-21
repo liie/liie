@@ -1,14 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>卿本佳人</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>域名售卖</title>
+    <link rel="stylesheet" type="text/css" href="main.css"/>
 </head>
+
 <body>
-<script language='javascript'>document.location = 'http://iqbjr.lofter.com/'</script>
-<center style="margin-top:200px;display:block;"> 欢迎访问！请点击以下地址进入。
-</center>
-<center style="margin-top:50px;display:block;font-size:30px;font-weight:bold;font-family:Arial;color:blue;text-decoration:none">
-<a style="font-size:30px;font-weight:bold;font-family:Arial;color:blue;text-decoration:none" href="http://iqbjr.lofter.com/">卿本佳人</a></center>
+<div class="vi">
+    <div class="sidebar">
+        <div class="header">
+            <h1>喵~~</h1>
+            <div class="quote">
+                <p class="quote-text animate-init">您正在访问的域名可以转让出售！ the domain is for sale!</p>
+                <p class="quote-author animate-init">Email：570450557@qq.com</p>
+            </div>
+        </div>
+        <!-- <div class="menu" > -->
+            <!-- <a href="https://mi.aliyun.com/shop/19132" class="animate-init">Yumi</a> -->
+        <!-- </div> -->
+        <div class="location">
+            <i class="location-icon"></i>
+            <span class="location-text animate-init">China • Tsinan | Hosted by Aliyun </a></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        var delay = 1;
+        var DELAY_STEP = 200;
+        var animationOptions = { opacity: 1, top: 0};
+
+        $('h1').animate(animationOptions).promise()
+                .pipe(animateMain)
+                .pipe(animateLocationIcon);
+
+        function animateMain() {
+            var dfd = $.Deferred();
+            var els = $('.animate-init');
+            var size = els.size();
+
+            els.each(function (index, el) {
+                delay++;
+                $(el).delay(index * DELAY_STEP)
+                        .animate(animationOptions);
+                (size - 1 === index) && dfd.resolve();
+            });
+            return dfd.promise();
+        }
+
+        function animateLocationIcon() {
+            $('.location-icon').delay(delay * DELAY_STEP).animate({
+                opacity: 1,
+                top: 0
+            }).promise;
+        }
+    });
+</script>
 </body>
 </html>
